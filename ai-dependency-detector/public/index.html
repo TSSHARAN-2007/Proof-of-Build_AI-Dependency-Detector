@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08090b">
+  <meta name="description" content="Explore a public GitHub project and reflect on how well you understand its code.">
+  <title>Proof of Build — AI Dependency Detector</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="wrap nav">
+    <div class="brand">proof<span>/</span>of<span>/</span>build</div>
+    <div class="nav-right"><span><i class="live-dot"></i><span class="status-text"><span class="cool-emoji" aria-hidden="true">😎</span> COOL</span></span><span>V 1.0.0</span></div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-brand">AI DEPENDENCY DETECTOR</div>
+      <h1>AI can write the code.<br><em>Can you explain it?</em></h1>
+      <p class="intro">A working project is only the beginning. Explore the code behind a build, answer questions that adapt to you, and see what your explanations reveal.</p>
+      <div class="micro">PUBLIC REPOSITORIES ONLY · NO SAVED ASSESSMENT HISTORY</div>
+      <button class="demo-link" id="demoBtn" type="button">↳ Analyze a sample project <span>↓</span></button>
+    </section>
+
+    <section id="workspace" aria-labelledby="workspaceTitle">
+      <h2 class="section-title" id="workspaceTitle">Start with a project</h2>
+      <div class="stepper" aria-label="Assessment progress">
+        <div class="step active" id="st1"><b>1</b> Project</div><div class="connector"></div>
+        <div class="step" id="st2"><b>2</b> Understand</div><div class="connector"></div>
+        <div class="step" id="st3"><b>3</b> Report</div>
+      </div>
+
+      <div class="card intake">
+        <div>
+          <div class="label">Repository intake</div>
+          <p class="intake-copy">Analyze a public GitHub repository, then answer questions grounded in its actual files. Choose a short or deep assessment. Refresh to generate a new set; answers are never saved.</p>
+          <div class="assessment-choice"><span>Choose assessment length</span>
+            <div class="choice-switch" role="group" aria-label="Assessment question count">
+              <button type="button" class="choice-option is-selected" data-count="4" aria-pressed="true"><b>4</b><span>Quick</span></button>
+              <button type="button" class="choice-option" data-count="10" aria-pressed="false"><b>10</b><span>Deep dive</span></button>
+            </div>
+            <input type="hidden" id="assessmentLength" value="4">
+          </div>
+          <form id="repoForm" class="input-wrap">
+            <input id="repoUrl" type="url" placeholder="https://github.com/owner/repository" aria-label="Public GitHub repository URL" required>
+            <button type="submit">Analyze repository <span>↗</span></button>
+          </form>
+          <div class="sample-note">PUBLIC REPOSITORIES · LIVE STRUCTURE + FILE ANALYSIS</div>
+          <div class="status" id="status" role="status" aria-live="polite"><i></i><span>Fetching repository metadata…</span></div>
+        </div>
+        <aside class="spec" aria-label="Prototype details">
+          <div class="line"><span>Source</span><span>Public GitHub</span></div>
+          <div class="line"><span>Analysis</span><span>Structure + code cues</span></div>
+          <div class="line"><span>Assessment</span><span>Adaptive · 4 or 10</span></div>
+          <div class="line"><span>Verification</span><span>LLM · optional setup</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="results" id="results" aria-live="polite">
+      <div class="project-head">
+        <div><div class="label">Project profile · analysis complete</div><h2 class="project-title" id="projectTitle"></h2><div class="tags" id="tags"></div></div>
+        <button class="outline-btn" id="resetBtn" type="button">↻ Start over</button>
+      </div>
+
+      <div class="grid">
+        <div class="panel"><div class="panel-head"><h3>Repository map</h3><span class="micro">OBSERVED FILES</span></div><div class="tree" id="tree"></div></div>
+        <div class="panel"><div class="panel-head"><h3>What we noticed</h3><span class="micro">REPOSITORY SIGNALS</span></div><div id="insights"></div></div>
+      </div>
+
+      <div class="metrics">
+        <button class="panel metric metric-trigger" data-metric="structure" type="button" aria-label="Explain structure coverage score">
+          <span class="n" id="structureMetric">—</span><span><span class="label">Structure coverage ⓘ</span><span class="desc">Click to see the calculation</span></span><span class="bar"><span id="structureBar" style="width:0%"></span></span>
+        </button>
+        <button class="panel metric metric-trigger" data-metric="understanding" type="button" aria-label="Explain understanding estimate">
+          <span class="n" id="understandingMetric">—</span><span><span class="label">Understanding estimate ⓘ</span><span class="desc">Click to see each answer score</span></span><span class="bar"><span id="understandingBar" style="width:0%"></span></span>
+        </button>
+        <button class="panel metric metric-trigger" data-metric="difference" type="button" aria-label="Explain signal difference">
+          <span class="n" id="gapMetric">—</span><span><span class="label">Signal difference ⓘ</span><span class="desc">Click to see the comparison</span></span><span class="bar"><span id="gapBar" style="width:0%"></span></span>
+        </button>
+      </div>
+      <div class="llm-status" id="llmStatus" role="status" aria-live="polite">Checking LLM verification setup…</div>
+      <div class="disclaimer">When configured, your answers and selected public source excerpts are sent to the chosen LLM provider for verification. Microphone speech may be processed by your browser’s speech service. The prototype does not save assessment history. Structure coverage is not a code-quality score, and LLM feedback may be wrong.</div>
+
+      <div class="panel assess" id="assessment">
+        <div class="assess-head"><h3 class="section-title">Show what you know</h3><span class="question-count" id="qCount">QUESTION 01 / 04</span></div>
+        <div class="qtype" id="qType">Explain · Code path</div>
+        <button class="outline-btn retry-questions" id="retryQuestionBtn" type="button" hidden>↻ Retry LLM screening</button>
+        <p class="question" id="question"></p>
+        <fieldset class="mcq-options" id="mcqOptions" hidden><legend class="sr-only">Choose one answer</legend></fieldset>
+        <label class="sr-only" for="answer">Your explanation</label>
+        <div class="answer-wrap">
+          <textarea class="answer" id="answer" placeholder="Explain it in your own words. Reference a file or code symbol to make your reasoning concrete…"></textarea>
+          <button class="mic-btn" id="voiceBtn" type="button" aria-label="Use microphone to dictate your answer" title="Dictate answer" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3Z"/><path d="M19 11a7 7 0 0 1-14 0M12 18v4m-4 0h8"/></svg></button>
+        </div>
+        <span class="sr-only" id="voiceStatus" role="status" aria-live="polite">Microphone ready.</span>
+        <div class="assess-actions"><span class="micro">TAKE YOUR TIME · THERE ARE NO TRICK QUESTIONS</span><div class="assess-action-buttons"><button class="primary" id="submitAnswer" type="button">Submit reflection&nbsp; ↗</button><button class="primary continue-answer" id="continueAnswer" type="button" hidden>Continue&nbsp; →</button></div></div>
+        <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+        <button class="outline-btn retry-verification" id="retryVerification" type="button" hidden>↻ Retry LLM verification</button>
+        <section class="live-answer-review" id="liveAnswerReview" hidden aria-label="Review answered questions"><div class="review-head"><h4>Review answered questions</h4><div class="review-controls"><button class="review-arrow" id="liveReviewPrev" type="button" aria-label="View previous answered question">←</button><span id="liveReviewCount" aria-live="polite">1 / 1</span><button class="review-arrow" id="liveReviewNext" type="button" aria-label="View next answered question">→</button></div></div><div id="liveReviewCard" aria-live="polite"></div></section>
+        <div class="report panel" id="report"><div class="panel-head"><h3>Your learning snapshot</h3><span class="label">SESSION COMPLETE</span></div><div id="reportRows"></div>
+          <section class="answer-review" aria-labelledby="answerReviewTitle"><div class="review-head"><h4 id="answerReviewTitle">Review your answers</h4><div class="review-controls"><button class="review-arrow" id="reviewPrev" type="button" aria-label="View previous answer">←</button><span id="reviewCount" aria-live="polite">1 / 4</span><button class="review-arrow" id="reviewNext" type="button" aria-label="View next answer">→</button></div></div><div id="reviewCard" aria-live="polite"></div></section>
+          <div class="wrong-answers" id="wrongAnswers"></div><p class="report-note">LLM feedback can be imperfect. Use this report as a learning guide, not as a hiring or grading verdict.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer"><span>Proof of Build · Hackathon prototype</span><span>Build real skills · not just better prompts</span><span class="credits">Made by Sharan and Kamal (Team: Max Effort)</span></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog class="metric-dialog" id="metricDialog" aria-labelledby="metricDialogTitle"><div class="dialog-head"><h2 id="metricDialogTitle"></h2><button id="metricDialogClose" type="button" aria-label="Close explanation">×</button></div><div class="dialog-content" id="metricDialogContent"></div></dialog>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
