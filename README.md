@@ -1,4 +1,9 @@
-<img width="4032" height="328" alt="image" src="https://github.com/user-attachments/assets/13153104-a6d2-4824-bc9f-87a36f3f9621" />
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![Flask](https://img.shields.io/badge/Flask-Web_App-black)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Status](https://img.shields.io/badge/Status-Active-success)
+
+
 
 🤖 AI Dependency Detector
 An intelligent web application that analyzes text and estimates the level of dependency on AI-generated content. The tool helps users identify whether a piece of text appears to be written primarily by a human, AI, or a combination of both.
