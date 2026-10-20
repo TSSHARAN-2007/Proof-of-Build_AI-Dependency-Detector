@@ -1,30 +1,118 @@
-# Proof-of-Build_AI-Dependency-Detector
-An interactive tool that analyzes a public GitHub repository and assesses how well you understand its code, with adaptive questions, optional LLM feedback, and personalized improvement tips
+<img width="4032" height="328" alt="image" src="https://github.com/user-attachments/assets/13153104-a6d2-4824-bc9f-87a36f3f9621" />
 
-# AI Dependency Detector
+🤖 AI Dependency Detector
+An intelligent web application that analyzes text and estimates the level of dependency on AI-generated content. The tool helps users identify whether a piece of text appears to be written primarily by a human, AI, or a combination of both.
 
-**AI can write the code. Can you explain it?**
+🚀 Overview
+With the rise of generative AI tools such as ChatGPT, Gemini, Claude, and Copilot, distinguishing between human-written and AI-assisted content has become increasingly important.
 
-AI Dependency Detector is an interactive prototype that analyzes a public GitHub repository and helps developers reflect on how well they understand its structure and code. It maps selected project files, asks repository-grounded questions, and provides a report with feedback and suggested next steps.
+AI Dependency Detector provides a simple and effective way to analyze textual content and estimate the likelihood of AI involvement.
 
-## Features
+✨ Features
+✅ Analyze text for AI-generated patterns
 
-- Analyze public GitHub repositories
-- Explore a project map, detected technology stack, and repository signals
-- Choose a 4-question written assessment or a 10-question multiple-choice deep dive
-- Get questions based on the repository’s files and structure
-- Use the microphone button to dictate written answers in supported browsers
-- Review previous answers, explanations, and correct-answer guidance
-- Get optional LLM question generation and answer verification
-- View assessment scores, areas to improve, and actionable suggestions
-- Use a responsive black-and-gold interface with click sound effects
+✅ Estimate AI dependency percentage
 
-## Try it locally
+✅ User-friendly web interface
 
-**Requirements:** Node.js 18 or newer.
+✅ Instant analysis and results
 
-1. Download or clone this repository.
-2. On Windows, run `start-local.bat`. Alternatively, run:
+✅ Lightweight and easy to use
 
-   ```bash
-   npm run dev
+✅ Responsive design
+
+✅ Open-source and extensible
+
+🛠️ Tech Stack
+Frontend
+HTML
+CSS
+JavaScript
+Backend
+Python
+Flask
+Machine Learning / Data Processing
+NumPy
+Pandas
+Scikit-Learn
+Deployment
+Vercel
+📂 Project Structure
+Proof-of-Build_AI-Dependency-Detector/
+│
+├── static/
+│   ├── css/
+│   ├── js/
+│
+├── templates/
+│   └── index.html
+│
+├── model/
+│   └── detector.pkl
+│
+├── app.py
+├── requirements.txt
+├── vercel.json
+└── README.md
+⚙️ Installation
+1. Clone the Repository
+git clone https://github.com/TSSHARAN-2007/Proof-of-Build_AI-Dependency-Detector.git
+cd Proof-of-Build_AI-Dependency-Detector
+2. Create a Virtual Environment
+python -m venv venv
+3. Activate the Virtual Environment
+Windows
+venv\Scripts\activate
+Linux / MacOS
+source venv/bin/activate
+4. Install Dependencies
+pip install -r requirements.txt
+5. Run the Application
+python app.py
+6. Open in Browser
+http://127.0.0.1:5000
+📊 How It Works
+User enters text into the application.
+The text is preprocessed and cleaned.
+Language patterns and textual features are extracted.
+The trained model analyzes the content.
+An AI dependency score is generated.
+Results are displayed to the user.
+🎯 Use Cases
+Academic Content Verification
+Content Authenticity Checks
+AI-Assisted Writing Analysis
+Research and Educational Purposes
+Blogging and Publishing Platforms
+🔮 Future Enhancements
+PDF File Analysis
+DOCX File Upload
+Batch Document Processing
+Advanced NLP Models
+Data Visualization Dashboard
+REST API Support
+Multi-Language Detection
+
+🤝 Contributing
+Contributions are welcome!
+
+If you would like to improve the project:
+
+Fork the repository
+Create a feature branch
+Commit your changes
+Open a Pull Request
+👨‍💻 Author
+T S Sharan
+B.Tech CSE (AI & ML)
+VIT-AP University
+GitHub: https://github.com/TSSHARAN-2007
+⭐ Support
+If you like this project, please consider giving it a star ⭐ on GitHub.
+
+Your support helps the project grow and reach more developers.
+
+📜 License
+This project is licensed under the MIT License.
+
+Feel free to use, modify, and distribute it for educational and personal purposes.
