@@ -75,7 +75,7 @@ pip install -r requirements.txt
 5. Run the Application
 python app.py
 6. Open in Browser
-http://127.0.0.1:5000
+(https://proofofbuild-six.vercel.app/)
 📊 How It Works
 User enters text into the application.
 The text is preprocessed and cleaned.
