@@ -75,7 +75,7 @@ pip install -r requirements.txt
 5. Run the Application
 python app.py
 6. Open in Browser
-(https://proofofbuild-six.vercel.app/)
+(https://proof-of-build-liard.vercel.app/)
 📊 How It Works
 User enters text into the application.
 The text is preprocessed and cleaned.
